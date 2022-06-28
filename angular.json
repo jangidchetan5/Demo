@@ -1,0 +1,222 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-spinner": {
+      "root": "projects/ngx-spinner",
+      "sourceRoot": "projects/ngx-spinner/src",
+      "projectType": "library",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-spinner/tsconfig.lib.json",
+            "project": "projects/ngx-spinner/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-spinner/tsconfig.lib.prod.json",
+              "project": "projects/ngx-spinner/ng-package.json"
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-spinner/src/test.ts",
+            "tsConfig": "projects/ngx-spinner/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-spinner/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-spinner/**/*.ts",
+              "projects/ngx-spinner/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-tester": {
+      "root": "projects/ngx-tester/",
+      "sourceRoot": "projects/ngx-tester/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "aot": true,
+            "outputPath": "dist/ngx-tester",
+            "index": "projects/ngx-tester/src/index.html",
+            "main": "projects/ngx-tester/src/main.ts",
+            "polyfills": "projects/ngx-tester/src/polyfills.ts",
+            "tsConfig": "projects/ngx-tester/tsconfig.app.json",
+            "assets": [
+              "projects/ngx-tester/src/favicon.ico",
+              "projects/ngx-tester/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-tester/src/styles.css",
+              "dist/ngx-spinner/animations/ball-8bits.css",
+              "dist/ngx-spinner/animations/ball-atom.css",
+              "dist/ngx-spinner/animations/ball-beat.css",
+              "dist/ngx-spinner/animations/ball-circus.css",
+              "dist/ngx-spinner/animations/ball-climbing-dot.css",
+              "dist/ngx-spinner/animations/ball-clip-rotate-multiple.css",
+              "dist/ngx-spinner/animations/ball-clip-rotate-pulse.css",
+              "dist/ngx-spinner/animations/ball-clip-rotate.css",
+              "dist/ngx-spinner/animations/ball-elastic-dots.css",
+              "dist/ngx-spinner/animations/ball-fall.css",
+              "dist/ngx-spinner/animations/ball-fussion.css",
+              "dist/ngx-spinner/animations/ball-grid-beat.css",
+              "dist/ngx-spinner/animations/ball-grid-pulse.css",
+              "dist/ngx-spinner/animations/ball-newton-cradle.css",
+              "dist/ngx-spinner/animations/ball-pulse-rise.css",
+              "dist/ngx-spinner/animations/ball-pulse-sync.css",
+              "dist/ngx-spinner/animations/ball-pulse.css",
+              "dist/ngx-spinner/animations/ball-rotate.css",
+              "dist/ngx-spinner/animations/ball-running-dots.css",
+              "dist/ngx-spinner/animations/ball-scale-multiple.css",
+              "dist/ngx-spinner/animations/ball-scale-pulse.css",
+              "dist/ngx-spinner/animations/ball-scale-ripple-multiple.css",
+              "dist/ngx-spinner/animations/ball-scale-ripple.css",
+              "dist/ngx-spinner/animations/ball-scale.css",
+              "dist/ngx-spinner/animations/ball-spin-clockwise-fade-rotating.css",
+              "dist/ngx-spinner/animations/ball-spin-clockwise-fade.css",
+              "dist/ngx-spinner/animations/ball-spin-clockwise.css",
+              "dist/ngx-spinner/animations/ball-spin-fade-rotating.css",
+              "dist/ngx-spinner/animations/ball-spin-fade.css",
+              "dist/ngx-spinner/animations/ball-spin-rotate.css",
+              "dist/ngx-spinner/animations/ball-spin.css",
+              "dist/ngx-spinner/animations/ball-square-clockwise-spin.css",
+              "dist/ngx-spinner/animations/ball-square-spin.css",
+              "dist/ngx-spinner/animations/ball-triangle-path.css",
+              "dist/ngx-spinner/animations/ball-zig-zag-deflect.css",
+              "dist/ngx-spinner/animations/ball-zig-zag.css",
+              "dist/ngx-spinner/animations/cog.css",
+              "dist/ngx-spinner/animations/cube-transition.css",
+              "dist/ngx-spinner/animations/fire.css",
+              "dist/ngx-spinner/animations/line-scale-party.css",
+              "dist/ngx-spinner/animations/line-scale-pulse-out-rapid.css",
+              "dist/ngx-spinner/animations/line-scale-pulse-out.css",
+              "dist/ngx-spinner/animations/line-scale.css",
+              "dist/ngx-spinner/animations/line-spin-clockwise-fade-rotating.css",
+              "dist/ngx-spinner/animations/line-spin-clockwise-fade.css",
+              "dist/ngx-spinner/animations/line-spin-fade-rotating.css",
+              "dist/ngx-spinner/animations/line-spin-fade.css",
+              "dist/ngx-spinner/animations/pacman.css",
+              "dist/ngx-spinner/animations/square-jelly-box.css",
+              "dist/ngx-spinner/animations/square-loader.css",
+              "dist/ngx-spinner/animations/square-spin.css",
+              "dist/ngx-spinner/animations/timer.css",
+              "dist/ngx-spinner/animations/triangle-skew-spin.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-tester/src/environments/environment.ts",
+                  "with": "projects/ngx-tester/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {},
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-tester:build:production"
+            },
+            "development": {
+              "browserTarget": "ngx-tester:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-tester:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-tester/src/test.ts",
+            "polyfills": "projects/ngx-tester/src/polyfills.ts",
+            "tsConfig": "projects/ngx-tester/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-tester/karma.conf.js",
+            "styles": [
+              "projects/ngx-tester/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/ngx-tester/src/favicon.ico",
+              "projects/ngx-tester/src/assets"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-tester-e2e": {
+      "root": "projects/ngx-tester-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ngx-tester-e2e/protractor.conf.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-tester:serve:production"
+            },
+            "development": {
+              "devServerTarget": "ngx-tester:serve:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  }
+}
